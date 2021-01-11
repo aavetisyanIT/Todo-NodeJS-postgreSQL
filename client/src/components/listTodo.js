@@ -3,6 +3,18 @@ import React, { Fragment, useEffect, useState } from 'react';
 export default function ListTodo() {
 	const [todos, setTodos] = useState([]);
 
+	//delete function
+	const deleteTodo = async (id) => {
+		try {
+			await fetch(`http://localhost:5000/todos/${id}`, {
+				method: 'DELETE',
+			});
+			setTodos(todos.filter((todo) => todo.todo_id !== id));
+		} catch (err) {
+			console.log(err.message);
+		}
+	};
+
 	const getTodos = async () => {
 		try {
 			const response = await fetch('http://localhost:5000/todos');
@@ -28,16 +40,18 @@ export default function ListTodo() {
 					</tr>
 				</thead>
 				<tbody>
-					{/* <tr>
-						<td>John</td>
-						<td>Doe</td>
-						<td>john@example.com</td>
-					</tr> */}
 					{todos.map((todo) => (
-						<tr>
+						<tr key={todo.todo_id}>
 							<td>{todo.description}</td>
 							<td>Edit</td>
-							<td>Delete</td>
+							<td>
+								<button
+									className='btn btn-danger'
+									onClick={() => deleteTodo(todo.todo_id)}
+								>
+									Delete
+								</button>
+							</td>
 						</tr>
 					))}
 				</tbody>
