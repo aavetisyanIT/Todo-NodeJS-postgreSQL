@@ -1,0 +1,24 @@
+{
+  "name": "todo_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aavetisyanIT/Todo-NodeJS-postgreSQL.git"
+  },
+  "author": "Artur Avetisyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aavetisyanIT/Todo-NodeJS-postgreSQL/issues"
+  },
+  "homepage": "https://github.com/aavetisyanIT/Todo-NodeJS-postgreSQL#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  }
+}
